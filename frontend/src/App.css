@@ -1,0 +1,32 @@
+/* Variables */
+:root {
+  --newspaper-brown: #E2DAC5;
+  --ink-black: #2b2b2b;
+  --worn-red: #C44E4E;
+}
+
+/* Font */
+@font-face {
+  font-family: "NYT";
+  src: url('./Fonts/ENGLISHT.TTF');
+}
+
+/* App Style */
+.App {
+  background-color: var(--newspaper-brown);
+  color: var(--ink-black);
+  font-family: 'IM Fell English', serif;
+  padding: 50px 200px;
+}
+
+/* Header Styles */
+.newspaper-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.newspaper-name h1 {
+  font-family: NYT;
+}
