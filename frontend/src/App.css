@@ -8,7 +8,7 @@
 /* Font */
 @font-face {
   font-family: "NYT";
-  src: url('./Fonts/ENGLISHT.TTF');
+  src: url('./Fonts/EnglishTowne-Normal.woff');
 }
 
 /* App Style */
@@ -16,11 +16,19 @@
   background-color: var(--newspaper-brown);
   color: var(--ink-black);
   font-family: 'IM Fell English', serif;
+  font-size: 1.5rem;
   padding: 50px 200px;
 }
 
 /* Header Styles */
 .newspaper-header {
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.newspaper-header,
+.newspaper-date,
+.newspaper-name {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -29,4 +37,16 @@
 
 .newspaper-name h1 {
   font-family: NYT;
+  font-size: 6rem;
+  letter-spacing: 1rem;
+}
+
+.newspaper-name,
+.newspaper-date {
+  width: 100%;
+  border-bottom: 10px solid var(--worn-red);
+}
+
+.newspaper-date {
+  padding: 20px 0px;
 }

@@ -4,11 +4,12 @@ export const Header = () => {
 
     return (
         <header className="newspaper-header">
+            {/* Newspaper title */}
             <div className="newspaper-name">
                 <h1>The Economic Times</h1>
             </div>
             <div className="newspaper-date">
-                <p>Placeholder date</p>
+                <p>Sun. March 13th, 2022</p>
             </div>
         </header>
     )
