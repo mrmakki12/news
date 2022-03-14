@@ -13,8 +13,8 @@ function App() {
       <Header/>
       <BrowserRouter>
         <Routes>
-          <Route exact path='/articles' element={<ArticlePreviews />} />
-          <Route exact path='/articles/:id' element={<Article />} />
+          <Route exact path='/' element={<ArticlePreviews />} />
+          {/* <Route exact path='/articles/:id' element={<Article />} /> */}
         </Routes>
       </BrowserRouter>
       <Footer />
