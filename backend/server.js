@@ -43,14 +43,12 @@ app.get('/api/v1/articles/:id', async (req, res, next) => {
 
         // query database
         const article = await db.query(`SELECT * FROM articles WHERE id = $1;`, [req.params.id]);
-        const authors = await db.query(`SELECT * FROM arthors WHERE article_id = $1;`, [req.params.id]);
         const comments = await db.query(`SELECT * FROM comments WHERE article_id = $1;`, [req.params.id]);
 
         // send back data
         res.status(200).json({
-            article,
-            authors,
-            comments
+            article: article,
+            comments: comments
         });
 
         // handle error
