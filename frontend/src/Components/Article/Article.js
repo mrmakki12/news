@@ -11,9 +11,6 @@ export const Article = () => {
     // article state 
     const [article, setArticle] = useState({});
 
-    // comments state
-    const [comments, setComments] = useState([]);
-
     // get article and its comments
     useEffect(() => {
         // fetch data
@@ -21,7 +18,6 @@ export const Article = () => {
             try {
                 const response = await EconTimes.get(`/${id}`);
                 setArticle(response.data.article.rows[0]);
-                setComments(response.data.comments.rows[0]);
             } catch (err) {
                 console.log(err);
             }
@@ -31,8 +27,12 @@ export const Article = () => {
 
     return (
         <div>
-            Article baby!
-            <p>{article.title}</p>
+            <div>
+                <p>{article.title} boi</p>
+            </div>
+            <div>
+                {/* <Comments /> */}
+            </div>
         </div>
     )
 }

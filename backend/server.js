@@ -36,18 +36,36 @@ app.get('/api/v1/articles', async (req, res, next) => {
     }
 });
 
-// get individual article with its author(s) and comments
+// get individual article 
 app.get('/api/v1/articles/:id', async (req, res, next) => {
 
     try {
 
         // query database
         const article = await db.query(`SELECT * FROM articles WHERE id = $1;`, [req.params.id]);
-        const comments = await db.query(`SELECT * FROM comments WHERE article_id = $1;`, [req.params.id]);
 
         // send back data
         res.status(200).json({
-            article: article,
+            article: article
+        });
+
+        // handle error
+    } catch (err) {
+
+        next(err);
+    }
+});
+
+// get article's comments
+app.get('/api/v1/articles/:id', async (req, res, next) => {
+
+    try {
+
+        // query database
+        const comments = await db.query(`SELECT * FROM articles WHERE article_id = $1;`, [req.params.id]);
+
+        // send back data
+        res.status(200).json({
             comments: comments
         });
 
