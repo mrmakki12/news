@@ -57,12 +57,12 @@ app.get('/api/v1/articles/:id', async (req, res, next) => {
 });
 
 // get article's comments
-app.get('/api/v1/articles/:id', async (req, res, next) => {
+app.get('/api/v1/articles/:id/comments', async (req, res, next) => {
 
     try {
 
         // query database
-        const comments = await db.query(`SELECT * FROM articles WHERE article_id = $1;`, [req.params.id]);
+        const comments = await db.query(`SELECT * FROM comments WHERE article_id = $1;`, [req.params.id]);
 
         // send back data
         res.status(200).json({
@@ -77,13 +77,13 @@ app.get('/api/v1/articles/:id', async (req, res, next) => {
 });
 
 // add comment 
-app.post('/api/v1/articles/:id', async (req, res, next) => {
+app.post('/api/v1/articles/:id/comments', async (req, res, next) => {
 
     try {
 
         // post comment in database
-        const comment = await db.query(`INSERT INTO comments (article_id, author, date_published, text) 
-        VALUES ($1, $2, $3, $4) returning *;`, [req.params.id, req.body.article_id, req.body.author, req.date_published, req.text]);
+        const comment = await db.query(`INSERT INTO comments (article_id, author, text) 
+        VALUES ($1, $2, $3) returning *;`, [req.body.article_id, req.body.author, req.body.text]);
 
         // send comment back
         res.status(201).json({
