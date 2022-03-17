@@ -10,8 +10,6 @@ export const Preview = ({article, position}) => {
 
     const text = docu.getElementById('article-text');
 
-    console.log(article, text);
-
     const navigator = useNavigate();
 
     const handleClick = (e) => {
@@ -19,13 +17,17 @@ export const Preview = ({article, position}) => {
         navigator(`/articles/${article.id}`);
     }
 
+    console.log(article.img_src)
+
     return (
         <div className={`preview ` + position} onClick={(e) => handleClick(e)}>
-            <p>{article.title}</p>
-            <div>
-                {
-
-                }
+            <div className="image">
+                <img src={article.img_src} alt=''/>
+            </div>
+            <div class='preview-text'>
+                <h1>{article.title}</h1>
+                <h2>{article.hook}</h2>
+                <p>{article.text.substring(0, 500)}...</p>
             </div>
         </div>
     )

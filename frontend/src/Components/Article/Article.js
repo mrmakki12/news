@@ -47,16 +47,13 @@ export const Article = () => {
     }, []);
 
     return (
-        <div>
+        <div className="article">
             <div>
                 <h1>{article.title}</h1>
                 <h2>{article.hook}</h2>
                 <div>
                     {
-                        // Array.from(text).map(elem => {
-                        //     console.log(elem)
-                        //     return elem;
-                        // }) 
+                        article.text
                     }
                 </div>
             </div>

@@ -11,7 +11,9 @@
   src: url('./Fonts/EnglishTowne-Normal.woff');
 }
 
-/* App Style */
+/* Constant Styles
+////////////////// 
+*/
 .App {
   background-color: var(--newspaper-brown);
   color: var(--ink-black);
@@ -61,6 +63,92 @@ footer {
   padding-top: 20px;
 }
 
+/* text */
+.preview h1, 
+.preview h2,
+.article h1,
+.article h2,
+.avatar-container {
+  font-family: 'Bebas Neue';
+}
+
+.preview h1,
+.article h1 {
+  font-size: 5rem;
+}
+
+/*
+////////////////////////
+End constant styles 
+*/
+
+/* Home page/ article previews */
+.previews {
+  display: grid;
+  gap: 25px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1.5fr 1fr 1fr;
+  grid-template-areas: 
+  "zero zero"
+  "one one"
+  "two three";
+  margin-top: 50px;
+}
+
+.preview {
+  display: flex;
+  /* justify-content: space-between; */
+  align-items: center;
+  border-bottom: 3px solid var(--ink-black);
+}
+
+.preview-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.preview:hover {
+  cursor: pointer;
+}
+
+.zero {
+  grid-area: three;
+}
+
+.one {
+  grid-area: two;
+}
+
+.two {
+  grid-area: zero;
+}
+
+.three {
+  grid-area: one;
+}
+
+.image img {
+  border: 3px solid var(--ink-black);
+  padding: 5px;
+  margin-right: 20px;
+}
+
+.three .image img {
+  max-height: 350px;
+  max-width: 350px;
+  height: auto;
+  width: auto;
+}
+
+.two .image img {
+  max-height: 775px;
+  max-width: 775px;
+  height: auto;
+  width: auto;
+}
+
+
 /* Comments */
 .comments-container {
   margin-top: 50px;
@@ -86,6 +174,11 @@ footer {
 
 .comment-form textarea {
   height: 60px;
+}
+
+/* Article */
+.article {
+  margin-top: 50px;
 }
 
 /* Comment */
