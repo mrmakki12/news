@@ -32,6 +32,7 @@ export const ArticlePreviews = () => {
                 articles.map((article, index) => {
                     return <Preview article={article} key={index} position={converter.toWords(index)} />
                 })
+                // postion used in css to position preview
             }
         </div>
     )

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 // api 
 import EconTimes from "../../API/EconTimes";
 // components
@@ -16,9 +16,7 @@ export const Comments = ({comments}) => {
     const [comment, setComment] = useState('');
 
     // submit comment
-    const handleSubmit = (e) => {
-        
-        // console.log(typeof commentToSubmit.date_published)
+    const handleSubmit = () => {
         EconTimes.post(`/${id}/comments`, { article_id: id, author: author, text: comment});
         setAuthor('');
         setComment('');
@@ -29,6 +27,7 @@ export const Comments = ({comments}) => {
             <div>
                 <h1>Leave A Comment</h1>
                 <div>
+                    {/* form to leave comment */}
                     <form className="comment-form">
                         <input 
                             type='text' 
@@ -46,13 +45,14 @@ export const Comments = ({comments}) => {
                         <button 
                             type='submit'
                             disabled={comment.length === 0 || author.length === 0}
-                            onClick={(e) => handleSubmit(e)}
+                            onClick={() => handleSubmit()}
                             >Submit
                         </button>
                     </form>
                 </div>
                 <h2>Comments</h2>
             </div>
+            {/* Render comments here */}
             <div>
                 {
                     comments && comments.map((comment, index) => {

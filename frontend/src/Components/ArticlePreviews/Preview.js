@@ -20,9 +20,11 @@ export const Preview = ({article, position}) => {
 
     return (
         <div className={`preview ` + position} onClick={(e) => handleClick(e)}>
+            {/* image */}
             <div className="image">
                 <img src={article.img_src} alt=''/>
             </div>
+            {/* preview text */}
             <div className='preview-text' dangerouslySetInnerHTML={createMarkup()}>
             </div>
         </div>
