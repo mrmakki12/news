@@ -16,7 +16,6 @@
 */
 .App {
   background-color: #f2e7cb;
-
   color: var(--ink-black);
   font-family: 'IM Fell English', serif;
   font-size: 1.5rem;
@@ -115,7 +114,6 @@ End constant styles
 
 .preview:hover {
   cursor: pointer;
-  /* border: 3px solid var(--ink-black); */
   box-shadow: 10px 5px 5px var(--ink-black);
 }
 
@@ -220,4 +218,94 @@ End constant styles
   background-color: var(--worn-red);
   align-items: center;
   justify-content: center;
+}
+
+/* queries
+//////////
+*/
+
+@media screen and (max-width: 600px) {
+  /* App styles */
+  .App {
+    font-size: 1rem;
+    padding: 25px;
+  }
+
+  /* Text */
+  .preview h1,
+  .article h1 {
+    font-size: 2rem;
+  }
+
+  .newspaper-name h1 {
+    font-size: 1.5rem;
+    letter-spacing: 0.5rem;
+  }
+
+  /* Previews */
+  .previews {
+    margin-top: 10px;
+  }
+
+  .preview {
+    flex-direction: column-reverse;
+    margin-top: 10px;
+  }
+
+  .one .image img {
+    max-height: 250px;
+    max-width: 250px;
+    height: auto;
+    width: auto;
+  }
+  
+  .zero .image img {
+    max-height: 320px;
+    max-width: 320px;
+    height: auto;
+    width: auto;
+  }
+}
+
+@media screen and (min-width: 601px) and (max-width: 1400px) {
+  /* App styles */
+  .App {
+    font-size: 1.25rem;
+    padding: 25px;
+  }
+
+  /* Text */
+  .preview h1,
+  .article h1 {
+    font-size: 2rem;
+  }
+
+  .newspaper-name h1 {
+    font-size: 3.5rem;
+    letter-spacing: 0.5rem;
+  }
+
+  /* Previews */
+  .previews {
+    margin-top: 10px;
+  }
+
+  .preview {
+    flex-direction: column-reverse;
+    margin-top: 10px;
+  }
+
+  .one .image img {
+    max-height: 350px;
+    max-width: 350px;
+    height: auto;
+    width: auto;
+  }
+  
+  .zero .image img {
+    max-height: 450px;
+    max-width: 450px;
+    height: auto;
+    width: auto;
+  }
 }
