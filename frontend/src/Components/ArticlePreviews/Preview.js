@@ -4,30 +4,26 @@ import { useNavigate } from "react-router-dom";
 
 export const Preview = ({article, position}) => {
 
-    const parser = new DOMParser();
-
-    const docu = parser.parseFromString(article.text, 'text/html');
-
-    const text = docu.getElementById('article-text');
-
+    // navigate page to full article
     const navigator = useNavigate();
 
+    // function to go to full article page
     const handleClick = (e) => {
         e.preventDefault();
         navigator(`/articles/${article.id}`);
     }
 
-    console.log(article.img_src)
+    // render html 
+    const createMarkup = () => {
+        return { __html: article.text.substring(0, 500) + '...'}
+    }
 
     return (
         <div className={`preview ` + position} onClick={(e) => handleClick(e)}>
             <div className="image">
                 <img src={article.img_src} alt=''/>
             </div>
-            <div class='preview-text'>
-                <h1>{article.title}</h1>
-                <h2>{article.hook}</h2>
-                <p>{article.text.substring(0, 500)}...</p>
+            <div className='preview-text' dangerouslySetInnerHTML={createMarkup()}>
             </div>
         </div>
     )

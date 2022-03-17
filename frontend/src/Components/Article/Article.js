@@ -4,6 +4,8 @@ import { useParams } from "react-router-dom";
 import { Comments } from "../Comments/Comments";
 // api 
 import EconTimes from "../../API/EconTimes";
+// time converter
+const moment = require('moment');
 
 export const Article = () => {
 
@@ -15,20 +17,10 @@ export const Article = () => {
     // comments 
     const [comments, setComments] = useState([]);
 
-    // parse html from text
-    const parser = new DOMParser();
-    const document = parser.parseFromString(article.text, 'text/html');
-    console.log(document)
-    const text = document.getElementById('article-text');
-    console.log(text);
-
-    const appendText = () => {
-        const div = document.createElement('div')
-        div.appendChild(text);
-        div.classList.add('article-text');
-        console.log(div.childElementCount);
-        return div;
-    }
+    // render html
+    const createMarkup = () => {
+        return { __html: article.text }
+    };
 
     // get article and its comments
     useEffect(() => {
@@ -48,14 +40,16 @@ export const Article = () => {
 
     return (
         <div className="article">
-            <div>
-                <h1>{article.title}</h1>
-                <h2>{article.hook}</h2>
-                <div>
-                    {
-                        article.text
-                    }
+            <div className="comment-author" style={{'marginBottom': '25px'}}>
+                <div className="avatar-container">
+                    <div className="avatar">
+                        A
+                    </div>
+                    <p className="author-name">Written by: {article.author}</p>
                 </div>
+                <div>{moment(article.date_published).format('MMMM Do YYYY, h:mm a')}</div>
+            </div>
+            <div dangerouslySetInnerHTML={createMarkup()}>
             </div>
             <div>
                 <Comments comments={comments}/>

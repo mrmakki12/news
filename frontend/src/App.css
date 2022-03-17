@@ -15,11 +15,12 @@
 ////////////////// 
 */
 .App {
-  background-color: var(--newspaper-brown);
+  background-color: #f2e7cb;
+
   color: var(--ink-black);
   font-family: 'IM Fell English', serif;
   font-size: 1.5rem;
-  padding: 25px 210px;
+  padding: 25px 125px;
 }
 
 /* Header Styles */
@@ -66,8 +67,10 @@ footer {
 /* text */
 .preview h1, 
 .preview h2,
+.preview h3,
 .article h1,
 .article h2,
+.article h3,
 .avatar-container {
   font-family: 'Bebas Neue';
 }
@@ -84,10 +87,11 @@ End constant styles
 
 /* Home page/ article previews */
 .previews {
+  height: fit-content;
   display: grid;
   gap: 25px;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1.5fr 1fr 1fr;
+  grid-template-rows: 1.25fr 1fr 1fr;
   grid-template-areas: 
   "zero zero"
   "one one"
@@ -100,6 +104,7 @@ End constant styles
   /* justify-content: space-between; */
   align-items: center;
   border-bottom: 3px solid var(--ink-black);
+  transition: all ease-in-out 0.3s;
 }
 
 .preview-text {
@@ -110,22 +115,24 @@ End constant styles
 
 .preview:hover {
   cursor: pointer;
+  /* border: 3px solid var(--ink-black); */
+  box-shadow: 10px 5px 5px var(--ink-black);
 }
 
 .zero {
-  grid-area: three;
-}
-
-.one {
-  grid-area: two;
-}
-
-.two {
   grid-area: zero;
 }
 
-.three {
+.one {
   grid-area: one;
+}
+
+.two {
+  grid-area: two;
+}
+
+.three {
+  grid-area: three;
 }
 
 .image img {
@@ -134,16 +141,16 @@ End constant styles
   margin-right: 20px;
 }
 
-.three .image img {
+.one .image img {
   max-height: 350px;
   max-width: 350px;
   height: auto;
   width: auto;
 }
 
-.two .image img {
-  max-height: 775px;
-  max-width: 775px;
+.zero .image img {
+  max-height: 700px;
+  max-width: 700px;
   height: auto;
   width: auto;
 }
@@ -187,6 +194,7 @@ End constant styles
   min-height: 110px;
   flex-direction: column;
   margin-top: 50px;
+  border-bottom: 3px solid var(--ink-black);
 }
 
 .comment-author, 
