@@ -40,7 +40,7 @@ export const Article = () => {
             }
         }
         fetchData();
-    }, [id]);
+    }, [comments]);
 
     return (
         <div className="article">

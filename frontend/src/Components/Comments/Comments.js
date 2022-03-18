@@ -45,7 +45,7 @@ export const Comments = ({comments}) => {
                         <button 
                             type='submit'
                             disabled={comment.length === 0 || author.length === 0}
-                            onClick={() => handleSubmit()}
+                            onClick={handleSubmit}
                             >Submit
                         </button>
                     </form>
